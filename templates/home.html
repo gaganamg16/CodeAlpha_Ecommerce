@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>Welcome to CodeAlpha Store 🛍️</h1>
+
+    <p>
+        Discover quality products at affordable prices.
+    </p>
+
+    <div class="products">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <h3>{{ product.name }}</h3>
+
+            <p>{{ product.description }}</p>
+
+            <div class="price">
+                ₹{{ product.price }}
+            </div>
+
+            <p>
+                <strong>Available:</strong> {{ product.stock }}
+            </p>
+
+            <br>
+
+            <a
+                class="btn"
+                href="{% url 'product_detail' product.id %}"
+            >
+                View Details
+            </a>
+
+            <a
+                class="btn"
+                href="{% url 'add_to_cart' product.id %}"
+            >
+                Add to Cart 🛒
+            </a>
+
+        </div>
+
+        {% empty %}
+
+        <div class="product-card">
+            <h3>No products available</h3>
+            <p>Please add products through the admin panel.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

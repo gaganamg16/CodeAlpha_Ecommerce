@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>📦 Checkout</h1>
+
+    <h2>Total: ₹{{ total }}</h2>
+
+    <br>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>
+            <input
+                type="text"
+                name="full_name"
+                placeholder="Full Name"
+                required
+            >
+        </p>
+
+        <p>
+            <textarea
+                name="address"
+                placeholder="Delivery Address"
+                required
+            ></textarea>
+        </p>
+
+        <p>
+            <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                required
+            >
+        </p>
+
+        <button class="btn" type="submit">
+            Place Order
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

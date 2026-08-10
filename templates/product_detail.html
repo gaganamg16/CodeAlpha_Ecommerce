@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="product-card">
+
+        <h1>{{ product.name }}</h1>
+
+        <p>{{ product.description }}</p>
+
+        <h2>₹{{ product.price }}</h2>
+
+        <p>Available Stock: {{ product.stock }}</p>
+
+        <br>
+
+        <a href="/" class="btn">← Back to Products</a>
+
+        <a href="/cart/add/{{ product.id }}/" class="btn">
+            Add to Cart 🛒
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
